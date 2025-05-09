@@ -74,7 +74,7 @@ elif menu == "Infos pratiques":
     st.write("Il se peut que nous ne soyons pas seuls dans le logement.")
     lien_logement = "https://www.gites.fr/gites_saskarate_asteasu_h5496447.htm"
     st.write("4 chambres triples, 1 chambre quadruple 🛏️")
-    st.write("Selon l'agencement des chambres on essaiera de déplacer un lit pour faire une chambre double pour les filles et une deuxième chambre quadruple.")
+    st.write("Selon l'agencement des chambres, nous essayerons de déplacer un lit pour créer une chambre double pour les filles et une deuxième chambre quadruple")
     st.markdown(f"[Ici les informations sur le logement]({lien_logement})", unsafe_allow_html=True)
     
     st.subheader("🏊 Natation")
@@ -116,6 +116,8 @@ elif menu == "Parcours":
             st.write(f"7️⃣ long de {df_choix["Kilometres"].iloc[6]}km pour {df_choix["Denivele"].iloc[6]}mD+")
         if nb_parcours >= 8 :
             st.write(f"8️⃣ long de {df_choix["Kilometres"].iloc[7]}km pour {df_choix["Denivele"].iloc[7]}mD+")
+        if nb_parcours >= 9 :
+            st.write(f"9️⃣ long de {df_choix["Kilometres"].iloc[8]}km pour {df_choix["Denivele"].iloc[8]}mD+")
 
         
         choix = st.selectbox("Choisis le parcours que tu veux visualiser", list_nb_parcours)
