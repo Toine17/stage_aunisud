@@ -95,7 +95,7 @@ elif menu == "Parcours":
     distance_min = df_parcours["Kilometres"].min()
     distance_max = df_parcours["Kilometres"].max()
     val_min, val_max = st.slider("Choisis une plage de nombre de kilomètres :", min_value= distance_min, max_value= distance_max, value=(distance_min, distance_max))
-    df_choix = df_parcours.loc[(df_parcours["Kilometres"]>= val_min) & (df_parcours["Kilometres"]<= val_max)].reset_index(drop = True)
+    df_choix = df_parcours.loc[(df_parcours["Kilometres"]>= val_min) & (df_parcours["Kilometres"]<= val_max)].sort_values("Kilometres").reset_index(drop = True)
     #st.write(df_choix)
     nb_parcours = df_choix.shape[0]
     if nb_parcours != 0 :
