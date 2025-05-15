@@ -1,8 +1,41 @@
 import streamlit as st
 import pandas as pd
+import requests
+from datetime import date
 
 df_parcours = pd.read_csv("parcours.csv")
 
+# FONCTION ###################
+@st.cache_data
+def temperature_eau () :
+# Remplace cette clé par la tienne
+    api_key = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJCZXJzZWdlYXlhbnRvaW5lQHlhaG9vLmZyIiwianRpIjoiM2MwYmZhNjEtOWU5ZC00ZDZlLTllY2ItNTU3ZmMzMzA4ZmRmIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE3NDczMjc4NjEsInVzZXJJZCI6IjNjMGJmYTYxLTllOWQtNGQ2ZS05ZWNiLTU1N2ZjMzMwOGZkZiIsInJvbGUiOiIifQ.azUDk7xMml34w5dK9krF-LmL6XZ1Q1_7MzT6MVMW3SU'
+
+# Code de la plage de Zarautz (identifiant AEMET)
+    url_petition = 'https://opendata.aemet.es/opendata/api/prediccion/especifica/playa/2007901/?api_key=' + api_key
+
+# Étape 1 : Demande l'URL des données
+    response = requests.get(url_petition)
+
+    if response.status_code == 200:
+        json_data = response.json()
+        data_url = json_data['datos']  # URL réelle des données météo
+    
+
+    # Étape 2 : Obtenir les vraies données météo
+        response_data = requests.get(data_url)
+        if response_data.status_code == 200:
+            prevision = response_data.json()
+        
+        # Naviguer dans les données JSON (extraction dépend du format exact)
+            for jour in prevision[0]['prediccion']['dia']:
+            #eau = jour.get('temperaturaAgua')
+                eau = jour.get('tAgua')
+                t_eau = eau['valor1']
+                return t_eau
+temp_eau = 0
+st.session_state.temp_eau = temperature_eau ()
+# AFFICHAGE ###########################""    
 
 menu = st.sidebar.radio(
     "Menu",
@@ -80,7 +113,8 @@ elif menu == "Infos pratiques":
     
     st.subheader("🏊 Natation")
     st.write("La plage de Zarautz est à 30 minutes en voiture et la piscine municipale d'Aya à 17 minutes.")
-    
+    st.write(f"Aujourd'hui l'eau de l'océan à la plage de Zarautz est à {st.session_state.temp_eau}°")
+
     st.subheader(" 🏃‍♀️Course à pied")
     st.write("Pas de parcours tracé mais un beau terrain de jeu trail à disposition ⛰️")
 
