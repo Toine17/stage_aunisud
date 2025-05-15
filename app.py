@@ -75,6 +75,7 @@ elif menu == "Infos pratiques":
     lien_logement = "https://www.gites.fr/gites_saskarate_asteasu_h5496447.htm"
     st.write("4 chambres triples, 1 chambre quadruple 🛏️")
     st.write("Selon l'agencement des chambres, nous essayerons de déplacer un lit pour créer une chambre double pour les filles et une deuxième chambre quadruple")
+    st.write("Les draps sont fournis, pensez à prendre votre carte d'identité")
     st.markdown(f"[Ici les informations sur le logement]({lien_logement})", unsafe_allow_html=True)
     
     st.subheader("🏊 Natation")
