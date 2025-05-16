@@ -57,7 +57,7 @@ elif menu == "Programme":
     st.subheader("Déroulé du stage")
     jour = st.selectbox("Choix de la journée" , ["Jour 1","Jour 2","Jour 3","Jour 4"])
     if jour == "Jour 1":
-        st.write("🚙 Départ de la piscine de Surgères avec 2 minibus, heure à définir ⏱️")
+        st.write("🚙 Départ ⏱️8h30 de la piscine de Surgères avec 2 minibus")
         st.write("Trajet jusqu'en début d'après-midi, prévoir un pique-nique 🥪")
         st.write("Arrivée au gîte, 🚴‍♂️ première sortie vélo de 48 km avec 1000 m D+")
         st.write("👕 Prévoir la tenue du club pour la photo de groupe du stage")
@@ -104,7 +104,8 @@ elif menu == "Programme":
 
 elif menu == "Infos pratiques":
     st.subheader("🏨 Logement")
-    st.write("Il se peut que nous ne soyons pas seuls dans le logement.")
+    st.write("CARTE D'IDENTITE OBLIGATOIRE POUR S'ENREGISTRER")
+    st.write("Il se peut que nous ne soyons pas seuls dans le logement")
     lien_logement = "https://www.gites.fr/gites_saskarate_asteasu_h5496447.htm"
     st.write("4 chambres triples, 1 chambre quadruple 🛏️")
     st.write("Selon l'agencement des chambres, nous essayerons de déplacer un lit pour créer une chambre double pour les filles et une deuxième chambre quadruple")
@@ -113,7 +114,7 @@ elif menu == "Infos pratiques":
     
     st.subheader("🏊 Natation")
     st.write("La plage de Zarautz est à 30 minutes en voiture et la piscine municipale d'Aya à 17 minutes.")
-    st.write(f"Aujourd'hui l'eau de l'océan à la plage de Zarautz est à {st.session_state.temp_eau}°")
+    st.write(f"Aujourd'hui l'eau de l'océan à la plage de Zarautz est à {st.session_state.temp_eau}°🌡️")
 
     st.subheader(" 🏃‍♀️Course à pied")
     st.write("Pas de parcours tracé mais un beau terrain de jeu trail à disposition ⛰️")
