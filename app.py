@@ -45,9 +45,9 @@ menu = st.sidebar.radio(
 # ACCUEIL #############################
 
 if menu == "Accueil":
-    st.subheader("🔴⚫Bienvenue sur la page du stage Aunisud triathlon 2025 ")
-    st.write("Nous serons 16 participants au stage cette année")
-    st.write("Direction le Pays Basque espagnol du 29 mai au 1er juin")
+    st.subheader("🔴⚫Bienvenue sur la page du stage Aunisud triathlon 2026 ")
+    st.write("Nous serons 15 participants au stage cette année")
+    st.write("Direction le Saint Lary Soulan du 7 mai au 10 mai")
     st.write("Le menu est à ouvrir sur la gauche de l'écran")
     st.image("groupe_accueil.jpg")
 
